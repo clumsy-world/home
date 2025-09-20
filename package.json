@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "home",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -7,12 +7,16 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "deploy": "wrangler pages deploy dist --project-name clumsy-world"
+    "deploy": "wrangler pages deploy dist --project-name clumsy-world",
+    "format": "@biomejs/biome format --write .",
+    "lint": "@biomejs/biome lint .",
+    "check": "@biomejs/biome check --write ."
   },
   "dependencies": {
     "astro": "^5.13.9"
   },
   "devDependencies": {
+    "@biomejs/biome": "^2.2.4",
     "wrangler": "^4.38.0"
   }
 }

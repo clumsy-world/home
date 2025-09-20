@@ -1,0 +1,56 @@
+{
+  "formatter": {
+    "external": {
+      "command": "npx",
+      "arguments": [
+        "@biomejs/biome",
+        "format",
+        "--stdin-file-path",
+        "{buffer_path}"
+      ]
+    }
+  },
+  "format_on_save": "on",
+  "languages": {
+    "TypeScript": {
+      "formatter": {
+        "external": {
+          "command": "npx",
+          "arguments": [
+            "@biomejs/biome",
+            "format",
+            "--stdin-file-path",
+            "{buffer_path}"
+          ]
+        }
+      }
+    },
+    "TSX": {
+      "formatter": {
+        "external": {
+          "command": "npx",
+          "arguments": [
+            "@biomejs/biome",
+            "format",
+            "--stdin-file-path",
+            "{buffer_path}"
+          ]
+        }
+      }
+    },
+    "Astro": {
+      "formatter": {
+        "external": {
+          "command": "npx",
+          "arguments": [
+            "@biomejs/biome",
+            "format",
+            "--stdin-file-path",
+            "{buffer_path}"
+          ]
+        }
+      },
+      "format_on_save": "off"
+    }
+  }
+}
