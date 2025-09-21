@@ -14,13 +14,16 @@
   },
   "dependencies": {
     "astro": "^5.13.9",
+    "prismjs": "^1.30.0",
     "solid-js": "^1.9.9"
   },
   "devDependencies": {
+    "@astrojs/prism": "^3.3.0",
     "@astrojs/solid-js": "^5.1.1",
     "@biomejs/biome": "^2.2.4",
     "@tailwindcss/vite": "^4.1.13",
     "@types/node": "^24.5.2",
+    "@types/prismjs": "^1.26.5",
     "tailwindcss": "^4.1.13",
     "wrangler": "^4.38.0"
   }

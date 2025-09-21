@@ -1,6 +1,15 @@
 ---
+import 'prismjs/themes/prism-tomorrow.css'
 import '~/global.css'
 import { H1 } from '~/components/heading'
+import { CodeBlock } from '~/components/code-block'
+
+const exampleCode = `@std/io
+  print
+
+'Hello, clumsy world!'
+  |> print
+  |> !`
 ---
 
 <html lang="ja">
@@ -21,5 +30,6 @@ import { H1 } from '~/components/heading'
   </head>
   <body>
     <H1>Clumsy</H1>
+    <CodeBlock code={exampleCode} lang="clum" client:load />
   </body>
 </html>
