@@ -1,15 +1,10 @@
 ---
-import 'prismjs/themes/prism-tomorrow.css'
-import '~/global.css'
-import { H1 } from '~/components/heading'
+import { H1, H2 } from '~/components/heading'
 import { CodeBlock } from '~/components/code-block'
-
-const exampleCode = `@std/io
-  print
-
-'Hello, clumsy world!'
-  |> print
-  |> !`
+import GoogleAnalytics from '~/components/google-analytics/index.astro'
+import cw from './cw.sh?raw'
+import define from './define.clum?raw'
+import '~/components/styles'
 ---
 
 <html lang="ja">
@@ -18,18 +13,39 @@ const exampleCode = `@std/io
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <title>🏳️ clumsy</title>
-    <script src="https://www.googletagmanager.com/gtag/js?id=G-WRG9KXJEDV"></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || []
-      function gtag() {
-        dataLayer.push(arguments)
-      }
-      gtag('js', new Date())
-      gtag('config', 'G-WRG9KXJEDV')
-    </script>
+    <GoogleAnalytics />
   </head>
   <body>
-    <H1>Clumsy</H1>
-    <CodeBlock code={exampleCode} lang="clum" client:load />
+    <div class="w-full h-screen flex justify-center items-top">
+      <main class="w-full max-w-4xl">
+        <article class="flex flex-col gap-y-10">
+          <header class="py-4 bg-gradient-to-t from-gray-800 to-gray-900 flex justify-center items-center">
+            <H1 class="text-gray-100">Clum</H1>
+          </header>
+          <section class="bg-white px-4 py-2">
+            <H2>Installation</H2>
+            <CodeBlock client:load lang='bash' code='$ curl --proto "=https" --tlsv1.2 https://sh.clumsy.world -sSf | sh' />
+            <CodeBlock client:load lang='bash' code={cw} />
+          </section>
+          <section class="bg-white px-4 py-2">
+            <H2>Primitive types</H2>
+            <ul class="list-disc list-inside">
+              <li>i8, i32, i64, i128</li>
+              <li>u8, u32, u64, u128</li>
+              <li>f32, f64</li>
+              <li>char</li>
+            </ul>
+          </section>
+          <section class="bg-white px-4 py-2">
+            <H2>Comments</H2>
+            <CodeBlock client:load lang='clum' code='// single comment のみ' />
+          </section>
+          <section class="bg-white px-4 py-2">
+            <H2>Define</H2>
+            <CodeBlock client:load lang='clum' code={define} />
+          </section>
+        </article>
+      </main>
+    </div>
   </body>
 </html>

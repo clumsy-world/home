@@ -1,6 +1,14 @@
 import { onMount } from 'solid-js'
 import Prism from 'prismjs'
 import 'prismjs/themes/prism-tomorrow.css'
+import 'prismjs/components/prism-javascript'
+import 'prismjs/components/prism-bash'
+import 'prismjs/components/prism-typescript'
+import 'prismjs/components/prism-jsx'
+import 'prismjs/components/prism-tsx'
+import 'prismjs/components/prism-json'
+import 'prismjs/components/prism-css'
+import 'prismjs/components/prism-markdown'
 
 Prism.languages.clum = {
   comment: /\/\/.*/,
@@ -14,22 +22,19 @@ Prism.languages.clum = {
 }
 
 type Props = {
+  lang: string
   code: string
-  lang?: string
 }
 
 export function CodeBlock(props: Props) {
-  let codeRef: HTMLElement
+  let codeRef!: HTMLElement
 
   onMount(() => {
-    if (codeRef) {
-      Prism.highlightElement(codeRef)
-    }
+    Prism.highlightElement(codeRef)
   })
-
   return (
     <pre class={`language-${props.lang || 'clum'}`}>
-      <code ref={codeRef} class={`language-${props.lang || 'clum'}`}>
+      <code ref={codeRef} class={`language-${props.lang}`}>
         {props.code}
       </code>
     </pre>
