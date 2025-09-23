@@ -1,0 +1,21 @@
+// primitive は char のみ
+a: char = 'a'
+
+// String と文字列操作はstd libからimportする
+@std/string
+  String
+  replace
+  pad-start
+  pad-end
+  repeat
+  length
+  
+a: char[4] = 'aaaa'
+
+a: String = String:from 'aaaaa' |> !
+
+replaced = replace /a/g, 'b' a |> !
+// bbbbb
+
+replaced = replace 'a', 'b' a |> !
+// bbbbb

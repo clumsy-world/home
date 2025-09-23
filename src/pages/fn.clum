@@ -3,3 +3,18 @@
 f = f 1, 2
 // 残りの引数を入れた後実行
 f 3 |> !
+
+:pub
+# Vec<T>
+
+:pub
+:for(Vec<T>)
+# Add item: T, Vec<T> -> Vec<T>
+
+:pub
+:for(Vec<T>)
+# Remove index: u64, Vec<T> -> Vec<T>
+
+:pub
+:for(Vec<T>)
+# New ...items: Vec<T> -> Vec<T>

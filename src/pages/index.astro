@@ -4,6 +4,8 @@ import { CodeBlock } from '~/components/code-block'
 import GoogleAnalytics from '~/components/google-analytics/index.astro'
 import cw from './cw.sh?raw'
 import define from './define.clum?raw'
+import string from './string.clum?raw'
+import fn from './fn.clum?raw'
 import '~/components/styles'
 ---
 
@@ -13,36 +15,70 @@ import '~/components/styles'
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <title>🏳️ clumsy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
     <GoogleAnalytics />
   </head>
   <body>
     <div class="w-full h-screen flex justify-center items-top">
       <main class="w-full max-w-4xl">
         <article class="flex flex-col gap-y-10">
-          <header class="py-4 bg-gradient-to-t from-gray-800 to-gray-900 flex justify-center items-center">
-            <H1 class="text-gray-100">Clum</H1>
+          <header class="px-4 py-2">
+            <H1 class="text-zinc-900">Clum</H1>
           </header>
-          <section class="bg-white px-4 py-2">
-            <H2>Installation</H2>
+          <section class="bg-white">
+            <div class="px-4 py-2">
+              <H2>Installation</H2>
+            </div>
             <CodeBlock client:load lang='bash' code='$ curl --proto "=https" --tlsv1.2 https://sh.clumsy.world -sSf | sh' />
             <CodeBlock client:load lang='bash' code={cw} />
           </section>
-          <section class="bg-white px-4 py-2">
-            <H2>Primitive types</H2>
-            <ul class="list-disc list-inside">
-              <li>i8, i32, i64, i128</li>
-              <li>u8, u32, u64, u128</li>
-              <li>f32, f64</li>
-              <li>char</li>
-            </ul>
+          <section class="bg-white">
+            <div class="px-4 py-2">
+              <H2>Primitive Types</H2>
+              <ul class="mt-2 list-disc list-inside">
+                <li>i8, i32, i64, i128</li>
+                <li>u8, u32, u64, u128</li>
+                <li>f32, f64</li>
+                <li>char</li>
+              </ul>
+            </div>
           </section>
-          <section class="bg-white px-4 py-2">
-            <H2>Comments</H2>
+          <section class="bg-white">
+            <div class="px-4 py-2">
+              <H2>Built-in Types</H2>
+              <ul class="mt-2 list-disc list-inside">
+                <li>String</li>
+                <li>Vec&lt;T&gt;</li>
+                <li>Map&lt;K, V&gt;</li>
+                <li>Set&lt;T&gt;</li>
+              </ul>
+            </div>
+          </section>
+          <section class="bg-white">
+            <div class="px-4 py-2">
+              <H2>Comments</H2>
+            </div>
             <CodeBlock client:load lang='clum' code='// single comment のみ' />
           </section>
-          <section class="bg-white px-4 py-2">
-            <H2>Define</H2>
+          <section class="bg-white">
+            <div class="px-4 py-2">
+              <H2>Define</H2>
+            </div>
             <CodeBlock client:load lang='clum' code={define} />
+          </section>
+          <section class="bg-white">
+            <div class="px-4 py-2">
+              <H2>String</H2>
+            </div>
+            <CodeBlock client:load lang='clum' code={string} />
+          </section>
+          <section class="bg-white">
+            <div class="px-4 py-2">
+              <H2>Function</H2>
+            </div>
+            <CodeBlock client:load lang='clum' code={fn} />
           </section>
         </article>
       </main>

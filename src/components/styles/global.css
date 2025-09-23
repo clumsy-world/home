@@ -1,5 +1,66 @@
 @import "tailwindcss";
 
-body {
-  @apply bg-gray-50;
+html {
+  @apply bg-zinc-50;
+}
+
+/* prism-clumsy.css */
+code[class*="language-"],
+pre[class*="language-"] {
+  @apply bg-zinc-100;
+  font-family: "Fira Code", monospace;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+pre[class*="language-"] {
+  @apply p-4;
+  @apply text-zinc-700;
+}
+
+.token.comment {
+  @apply text-zinc-600;
+}
+
+.token.keyword {
+  @apply text-cyan-800;
+}
+
+.token.string {
+  @apply text-pink-400; 
+}
+
+.token.function {
+  @apply text-blue-700;
+}
+
+.token.operator {
+  @apply text-pink-600;
+}
+
+.token.define-block {
+  @apply bg-zinc-800 text-zinc-50;
+}
+
+.token.hash-symbol {
+  @apply font-bold text-zinc-50;
+}
+
+/* .token.arrow {
+  @apply 
+} */
+
+/* パラメータ名 */
+.token.parameter-name {
+  @apply text-zinc-50;
+}
+
+/* プリミティブ型を太字に */
+.token.builtin-type {
+  /* @apply font-bold;  */
+}
+
+/* カスタム型 */
+.token.type {
+  @apply text-green-600 font-bold;
 }

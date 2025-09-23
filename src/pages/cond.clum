@@ -1,0 +1,25 @@
+? a :is 0
+  fn1!
+:else a :gt 0
+  fn2!
+:else
+  fn3!
+
+a = ? n :is 0 'ok' :else 'error'
+a = ? result
+  :is Success user => user
+  :is Fail cause => cause
+
+:is
+:gt
+:gte
+:lt
+:lte
+:not
+:and
+:or
+:in
+:within
+
+? a :is 0 :and b :is 0
+  :or(c :gt 0 :and c :lt 10)
