@@ -8,13 +8,19 @@ f 3 |> !
 # Vec<T>
 
 :pub
-:for(Vec<T>)
-# Add item: T, Vec<T> -> Vec<T>
+:for Vec<T>
+# With xs: Vec<T>, x: T -> Vec<T>
 
 :pub
-:for(Vec<T>)
-# Remove index: u64, Vec<T> -> Vec<T>
+:for Vec<T>
+# RemoveAt xs: Vec<T>, index: u64 -> Vec<T>
+
+:pub
+:for Vec<T>
+// 無名関数内の引数名を省略できないようにする
+# Map<T, U> transform: (x: T -> U), xs: Vec<T> -> Vec<U>
 
 :pub
 :for(Vec<T>)
 # New ...items: Vec<T> -> Vec<T>
+
