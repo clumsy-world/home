@@ -64,3 +64,19 @@ open path, mode ->
 :when .windows
 open path, mode ->
   // IOCP使う
+
+:pub
+# Add a: i32, b: i32 -> :any i32, OverFlow
+
+:pub
+:test 'limit', t ->
+  limit: i32 = upper-limit<i32>!
+  result = add limit, 10 |> !
+  ? result
+    :is OverFlow => t:ok!
+    :else v => t:err v |> !
+add: Add a, b ->
+  sum = a + b
+  ? sum >= upper-limit<i32>!
+    :is true => OverFlow:from '{a}, {b}'
+    :is false => sum
