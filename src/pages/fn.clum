@@ -66,17 +66,17 @@ open path, mode ->
   // IOCP使う
 
 :pub
-# Add a: i32, b: i32 -> :any i32, OverFlow
+# Add a: u32, b: u32 -> :any u32, OverFlow
 
 :pub
 :test 'limit', t ->
-  limit: i32 = upper-limit<i32>!
+  limit: u32 = upper-limit<u32>!
   result = add limit, 10 |> !
   ? result
     :is OverFlow => t:ok!
     :else v => t:err v |> !
 add: Add a, b ->
   sum = a + b
-  ? sum >= upper-limit<i32>!
-    :is true => OverFlow:from '{a}, {b}'
-    :is false => sum
+  ? sum
+    :in 0..upper-limit<u32>! => sum
+    :else => OverFlow:from '{a}, {b}'
