@@ -1,0 +1,82 @@
+code[class*="language-"],
+pre[class*="language-"] {
+  @apply bg-stone-200 w-full;
+  font-family: "Fira Code", monospace;
+  font-optical-sizing: auto;
+  font-style: normal;
+  overflow-x: scroll;
+}
+
+pre[class*="language-"] {
+  @apply p-4;
+  @apply text-stone-700;
+}
+
+.token.comment {
+  @apply text-stone-500;
+}
+
+.token.keyword {
+  @apply text-cyan-800;
+}
+
+.token.string {
+  @apply text-pink-400; 
+}
+
+.token.function {
+  @apply text-blue-700;
+}
+
+.token.operator {
+  @apply text-pink-600;
+}
+
+.token.modifier-pub {
+  @apply text-pink-500;
+}
+
+.token.define-block {
+  @apply text-stone-50;
+  @apply bg-gradient-to-l to-stone-900 from-stone-700;
+}
+
+.token.hash-symbol {
+  @apply font-bold text-stone-50;
+}
+
+/* .token.arrow {
+  @apply 
+} */
+
+/* パラメータ名 */
+.token.parameter-name {
+  @apply text-stone-50;
+}
+
+/* プリミティブ型を太字に */
+.token.builtin-type {
+  @apply text-amber-300;
+  @apply font-bold; 
+}
+
+/* カスタム型 */
+.token.type {
+  @apply text-green-600 font-bold;
+}
+
+.token.define-block .token.type {
+  @apply text-green-400 font-bold;
+}
+
+.token.define-block .token.primitive {
+  @apply text-green-400 font-bold;
+}
+
+.token.import-line {
+  @apply text-stone-50;
+  @apply bg-gradient-to-r to-stone-950 from-stone-700;
+  .token.at-symbol {
+    @apply font-bold text-stone-50;
+  }
+}

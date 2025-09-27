@@ -21,6 +21,46 @@ f 3 |> !
 # Map<T, U> transform: (x: T -> U), xs: Vec<T> -> Vec<U>
 
 :pub
-:for(Vec<T>)
+:for Vec<T>
 # New ...items: Vec<T> -> Vec<T>
 
+:pub
+# GetUser select: Select, id: UserId -> :any
+  User
+  UserNotFound
+  TooManyResults
+  GiveUp
+
+:pub
+:async
+get-user: GetUser select, id ->
+  'select * from users where id = {id}'
+    |> select
+    |> :await
+    |> :match 
+      :is Empty => UserNotFound id |> !
+      :is One found => User:from found |> !
+      :is Many results => TooManyResults:from results |> !
+      :else cause => GiveUp:from cause |> !
+    |> !
+
+a: i32 = 0
+a: i32:r = 0
+a: i32:w = 0
+a: i32:r:w = 0
+
+# File
+
+:pub
+:for File
+# Open path: PathLike, mode: Mode -> File
+
+:for File
+:when .linux
+open path, mode ->
+  // epoll使う
+
+:for File
+:when .windows
+open path, mode ->
+  // IOCP使う

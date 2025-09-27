@@ -1,0 +1,83 @@
+@reference 'tailwindcss/theme';
+
+.coding-font {
+  font-family: "Fira Code", monospace;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.philosophy {
+  width: fit-content;
+}
+
+@keyframes flow {
+  0% {
+    background-position: -100% 0;
+  }
+  40% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes blink-intense {
+  0%, 35% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  35% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  45% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  55% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  65% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  75%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.philosophy {
+  background: linear-gradient(
+    90deg,
+    var(--color-pink-500),
+    transparent 100%
+  );
+  @apply text-pink-50;
+  background-size: 20% 100%;
+  background-repeat: no-repeat;
+  animation: flow 3s ease-in-out infinite;
+}
+
+.philosophy > span:last-child {
+  animation: blink-intense 3s ease-in-out infinite;
+  display: inline-block;
+}

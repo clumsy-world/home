@@ -1,15 +1,12 @@
 import { onMount } from 'solid-js'
 import Prism from 'prismjs'
-import 'prismjs/components/prism-javascript'
 import 'prismjs/components/prism-bash'
-import 'prismjs/components/prism-typescript'
-import 'prismjs/components/prism-jsx'
-import 'prismjs/components/prism-tsx'
-import 'prismjs/components/prism-json'
-import 'prismjs/components/prism-css'
-import 'prismjs/components/prism-markdown'
 
 Prism.languages.clum = {
+  'modifier-pub': {
+    pattern: /^:pub$/m,
+    alias: 'modifier-pub',
+  },
   'define-line': {
     pattern: /^#.*$/m,
     greedy: true,
@@ -31,10 +28,20 @@ Prism.languages.clum = {
     },
     alias: 'define-block'
   },
+  'import-line': {
+  pattern: /^@.*$/m,
+  greedy: true,
+  inside: {
+    'at-symbol': {
+      pattern: /^@/,
+      alias: 'keyword',
+    },
+  }
+},
   comment: /\/\/.*/,
   string: /'(?:[^'\\]|\\.)*'/,
   keyword: /\b(?:\?|:else|:gt|:lt|:eq|=>|->|<-)\b/,
-  operator: /\|>|!|@/,
+  operator: /\|>|!/,
   type: /\b[A-Z][a-zA-Z0-9]*\b/,
   'primitive-type': {
     pattern: /\b(?:i8|i16|i32|i64|i128|u8|u16|u32|u64|u128|f32|f64|char|bool)\b/,
@@ -63,6 +70,3 @@ export function CodeBlock(props: Props) {
     </pre>
   )
 }
-const testCode = "# fn a: i32, b: i32 -> i32";
-const highlighted = Prism.highlight(testCode, Prism.languages.clum, 'clum');
-console.log('Highlighted HTML:', highlighted);

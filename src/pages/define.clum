@@ -13,14 +13,27 @@
 # fn a: i32, b: i32, c: i32 -> i32
   a * b * c
 
-# Success<T>: T
-# Fail<T>: T
-# Result<T, E>
-  :is Success<T>
-  :or Fail<E>
+# Yes<T>: T
+# No<T>: T
+# It<T, E> :any Yes, No
 
-# get-user -> Result<User, NotFound>
-a = get-user |> !
-? a
-  :is Success user => user
-  :is Fail cause => cause
+# GetUser -> :any User, NotFound, Critical
+it = get-user |> !
+? it
+  :is User user => user
+  :is NotFound => _
+  :is Critical cause => log cause |> !
+
+# DatabaseResult :is Disconnect :or SyntaxError
+# Query sql: SQL -> DatabaseResult
+# GetUser id: UserId -> User :or DatabaseResult
+# GetUserResult :is $type:return GetUser
+
+# Publish<T> message: T -> Void
+# Subscribe<T> fn: i(message: T -> Void) -> Void
+
+:pub
+:GetUser
+:resolve Query, At.building, './select-user.sql'
+get-user q: Query, id: UserId ->
+  q id |> !

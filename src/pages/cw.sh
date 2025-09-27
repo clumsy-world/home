@@ -1,3 +1,5 @@
+$ curl --proto "=https" --tlsv1.2 https://sh.clumsy.world -sSf | sh'
+
 # version
 cw
 cw -v
