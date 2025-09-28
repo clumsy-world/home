@@ -1,0 +1,23 @@
+// 全体に公開
+:share .all
+# Model
+
+// 自分が配置されているdir以下に公開
+:share .tree
+# Model
+
+// 自分が配置されているdirのみに公開
+:share .here
+# Model
+
+// import
+@ ./model
+  Model
+
+// lib
+@ std/file
+  File
+
+// path alias
+@ ~/repositories/user
+  User

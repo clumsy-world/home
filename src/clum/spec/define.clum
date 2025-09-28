@@ -24,10 +24,10 @@ it = get-user |> !
   :is NotFound => _
   :is Critical cause => log cause |> !
 
-# DatabaseResult :is Disconnect :or SyntaxError
+# DatabaseResult :any Disconnected, SyntaxError
 # Query sql: SQL -> DatabaseResult
-# GetUser id: UserId -> User :or DatabaseResult
-# GetUserResult :is $type:return GetUser
+# GetUser id: UserId -> :any User, DatabaseResult
+# GetUserResult :is $.type:return GetUser
 
 # Publish<T> message: T -> Void
 # Subscribe<T> fn: i(message: T -> Void) -> Void

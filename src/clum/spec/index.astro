@@ -1,0 +1,101 @@
+---
+import { H1, H2 } from '~/components/heading'
+import { CodeBlock } from '~/components/code-block'
+import GoogleAnalytics from '~/components/google-analytics/index.astro'
+import define from './define.clum?raw'
+import string from './string.clum?raw'
+import fn from './fn.clum?raw'
+import module from './module.clum?raw'
+import '~/components/styles'
+import './styles.css'
+---
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>clumsy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+    <GoogleAnalytics />
+  </head>
+  <body>
+    <div class="w-full h-screen">
+      <header class="coding-font bg-stone-950 flex justify-center items-center flex-col py-16">
+        <H1 class="text-stone-50 mb-1">CLUM</H1>
+        <div class="philosophy">
+          <span>clumsy</span>
+          <span>|></span>
+          <span>drop</span>
+          <span>'ambiguous'</span>
+          <span>|></span>
+          <span class="text-pink-50 font-bold">!</span>
+        </div>
+      </header>
+      <main class="w-full container mx-auto mb-10 max-w-3xl">
+        <article class="flex flex-col gap-y-10">
+          <!-- <section>
+            <div class="px-4 py-2">
+              <H2>Installation</H2>
+            </div>
+            <CodeBlock client:load lang='bash' code={cw} />
+          </section> -->
+          <section>
+            <div class="px-4 py-2">
+              <H2>Primitive Types</H2>
+              <ul class="mt-2 list-disc list-inside">
+                <li>i8, i32, i64, i128</li>
+                <li>u8, u32, u64, u128</li>
+                <li>f32, f64</li>
+                <li>char</li>
+              </ul>
+            </div>
+          </section>
+          <section>
+            <div class="px-4 py-2">
+              <H2>Built-in Types</H2>
+              <ul class="mt-2 list-disc list-inside">
+                <li>String</li>
+                <li>Vec&lt;T&gt;</li>
+                <li>Map&lt;K, V&gt;</li>
+                <li>Set&lt;T&gt;</li>
+              </ul>
+            </div>
+          </section>
+          <section>
+            <div class="px-4 py-2">
+              <H2>Comments</H2>
+            </div>
+            <CodeBlock client:load lang='clum' code='// single comment のみ' />
+          </section>
+          <section>
+            <div class="px-4 py-2">
+              <H2>Define</H2>
+            </div>
+            <CodeBlock client:load lang='clum' code={define} />
+          </section>
+          <section>
+              <div class="px-4 py-2">
+                <H2>Module</H2>
+              </div>
+            <CodeBlock client:load lang='clum' code={module} />
+          </section>
+          <section>
+            <div class="px-4 py-2">
+              <H2>String</H2>
+            </div>
+            <CodeBlock client:load lang='clum' code={string} />
+          </section>
+          <section class="bg-">
+            <div class="px-4 py-2">
+              <H2>Function</H2>
+            </div>
+            <CodeBlock client:load lang='clum' code={fn} />
+          </section>
+        </article>
+      </main>
+    </div>
+  </body>
+</html>
